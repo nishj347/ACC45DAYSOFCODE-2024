@@ -1,54 +1,48 @@
-#include <iostream>
-#include <string>
-
+#include<bits/stdc++.h>
 using namespace std;
+
 
 bool vowel(char ch) {
     ch = tolower(ch);
     return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
 }
 
-bool number(string& word) {
-    for (char ch : word) {
-        if (!isdigit(ch)) {
-            return false;
-        }
-    }
-    return true;
-}
 
 bool hardtopronounce(string word) {
     int count = 0;
 
+ 
     for (int i = 0; i < word.size(); i++) {
-        if (!vowel(word[i]) && isalpha(word[i])) { // Consonant check
+        if (!vowel(word[i]) && isalpha(word[i])) { 
             count++;
-            if (count >= 4) {
-                return true;  // Hard to pronounce if 4 or more consecutive consonants
+            if (count >= 4) {  
+                return true;  
             }
         } else {
-            count = 0;  // Reset count if a vowel is found
+            count = 0;  
         }
     }
-    return false; 
+    return false;  
 }
 
 int main() {
     int t;
-    cin >> t;  // Read number of words
+    cin >> t;  
 
-    for (int i = 0; i < t; i++) {
+    while (t--) {
+        int n;
         string word;
-        cin >> word;  // Read each word
         
-        if (number(word)) {
-            cout << "YES" << endl;  // Numbers are always easy to pronounce
-        } else if (hardtopronounce(word)) {
-            cout << "YES" << endl;  // Hard to pronounce if 4 or more consecutive consonants
+        cin >> n;  
+        cin >> word;  
+
+        if (hardtopronounce(word)) {
+            cout << "NO" << endl;  
         } else {
-            cout << "NO" << endl;   // Otherwise, easy to pronounce
+            cout << "YES" << endl;  
         }
     }
 
     return 0;
 }
+
