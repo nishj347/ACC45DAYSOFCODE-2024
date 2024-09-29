@@ -24,7 +24,7 @@ int main() {
     vector<int> result = s.twoSum(arr, target); 
 
     if (!result.empty()) {
-        cout << "sum: " << result[0] << ", " << result[1] << endl;
+        cout << "sum: " << result[0] << "," << result[1] << endl;
     } else {
         cout << "no such number" << endl;
     }
