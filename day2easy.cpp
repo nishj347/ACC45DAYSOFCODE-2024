@@ -1,36 +1,23 @@
 #include <iostream>
 using namespace std;
 
-int calculatecost(int people) {
-    int subscriptions = people / 6;
-    if (people % 6 != 0) {
-        subscriptions += 1;  
+void price(int n, int x) {
+    int subscriptions = 0;
+    while (n > 0) {
+        subscriptions++;
+        n -= 6;
     }
-
-    int total_cost = 0;
-
-    if (subscriptions <= 2) {
-        total_cost = subscriptions * 100;
-    } 
- 
-    else {
-        total_cost = 2 * 100; 
-        total_cost += (subscriptions - 2) * 135;  
-    }
-
-    return total_cost;
+    
+    cout << subscriptions * x << endl;
 }
 
 int main() {
-    int test_cases;
-    cin >> test_cases;
-
-    while (test_cases--) {
-        int people, expected_cost;
-        cin >> people >> expected_cost;
-        int total_cost = calculatecost(people);
-        cout << total_cost;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, x;
+        cin >> n >> x;
+        price(n, x);
     }
-
     return 0;
 }
