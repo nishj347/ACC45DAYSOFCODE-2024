@@ -1,0 +1,16 @@
+T = int(input())  # Number of test cases
+
+for _ in range(T):
+    H, X, Y = map(int, input().split())  # Read H, X, Y for each test case
+
+    # If Chef uses the special attack
+    if H - Y > 0:
+        attacks_with_special = 1 + (H - Y + X - 1) // X  # Special attack + normal attacks
+    else:
+        attacks_with_special = 1  # Special attack alone is enough
+
+    # If Chef only uses normal attacks
+    attacks_without_special = (H + X - 1) // X  # Normal attacks only
+
+    # Output the minimum of both strategies
+    print(min(attacks_with_special, attacks_without_special))
