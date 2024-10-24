@@ -1,0 +1,13 @@
+T = int(input())  # Number of test cases
+
+for _ in range(T):
+    N = int(input())  # Number of terms in the polynomial
+    A = list(map(int, input().split()))  # Coefficients of the polynomial
+    
+    # The degree of the polynomial is the highest index with a non-zero coefficient
+    degree = -1
+    for i in range(N):
+        if A[i] != 0:
+            degree = i
+    
+    print(degree)
