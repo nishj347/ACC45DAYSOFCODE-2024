@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.hday>
+
 using namespace std;
 
 int minions(int n,int k,vector<int>&arr){
